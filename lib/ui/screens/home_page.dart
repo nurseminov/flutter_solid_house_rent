@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_solid_house_rent/core/assets/app_images.dart';
 import 'package:flutter_solid_house_rent/core/theme/app_colors.dart';
-import 'package:flutter_solid_house_rent/core/theme/app_fonts.dart';
 import 'package:flutter_solid_house_rent/ui/widgets/akcia_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,9 +20,13 @@ class HomePageScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.white,
         elevation: 0.1,
-        title: Text(
+        title: Text (
           ' SolidHome',
-          style: AppFonts.w600s19.copyWith(color: AppColors.black),
+          style: GoogleFonts.montserrat(
+            fontSize: 19,
+            fontWeight: FontWeight.w600,
+            color: const Color.fromRGBO(51, 51, 51, 1)
+          ),
 
         ),
         actions: [
@@ -51,8 +54,12 @@ class HomePageScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20,),
         
-              Text('     Акций и скидки на новостройки',
-                 style: AppFonts.w600s18.copyWith(color: AppColors.black),
+              Text('    Акций и скидки на новостройки',
+                 style: GoogleFonts.montserrat(
+                 fontSize: 18,
+                 fontWeight: FontWeight.w600,
+                 color: const Color.fromRGBO(51, 51, 51, 1)
+                 ),
               ),
               const SizedBox(height: 20,),
         
@@ -69,12 +76,17 @@ class HomePageScreen extends StatelessWidget {
                   AkciaWidget(title: 'Ihlas', subTitle: 'Ипотека от 2.0% на весь срок'),
                   SizedBox(width: 16,),
                   AkciaWidget(title: 'KG Group', subTitle: 'Ипотека от 1.0% на весь срок'),
+                  SizedBox(width: 20,),
                 ],
                 ),
               ),
-              const SizedBox(height: 20,),
-              Text('     Строительные компаний',
-                 style: AppFonts.w600s18.copyWith(color: AppColors.black),
+              const SizedBox(height: 25,),
+              Text('    Строительные компаний',
+                 style: GoogleFonts.montserrat(
+                 fontSize: 18,
+                 fontWeight: FontWeight.w600,
+                 color: const Color.fromRGBO(51, 51, 51, 1)
+                 ),
               ),
               const SizedBox(height: 20,),
                  
@@ -91,13 +103,18 @@ class HomePageScreen extends StatelessWidget {
                   CompanyWidget(),
                   SizedBox(width: 16,),
                   CompanyWidget(),
+                  SizedBox(width: 20,),
                 ],
                 ),
               ),
         
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
               Text('     Риелторы',
-                 style: AppFonts.w600s18.copyWith(color: AppColors.black),
+                 style: GoogleFonts.montserrat(
+                 fontSize: 18,
+                 fontWeight: FontWeight.w600,
+                 color: const Color.fromRGBO(51, 51, 51, 1)
+                 ),
               ),
               const SizedBox(height: 20,),
 
@@ -115,35 +132,44 @@ class HomePageScreen extends StatelessWidget {
                   RieltorColumn(),
                   SizedBox(width: 16,),
                   RieltorColumn(),
+                  SizedBox(width: 20,),
                 ],
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 25),
               Text('     Наши услуги',
-                 style: AppFonts.w600s18.copyWith(color: AppColors.black),
+                 style: GoogleFonts.montserrat(
+                 fontSize: 18,
+                 fontWeight: FontWeight.w600,
+                 color: const Color.fromRGBO(51, 51, 51, 1)
+                 ),
               ),
-              const SizedBox(height: 20),
               const Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(30.0),
                 child: SizedBox(
-                  height:1155,
+                  height:1180,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      ServicesWidget(),
+                      ServicesWidget(title: 'Аренда дома', 
+                      subTitle: 'Мы создаем безупречный онлайн-опыт  от покупок в крупнейшей сети проката до подачи заявки и оплаты аренды.',),
                       SizedBox(height: 20,),
-                      ServicesWidget(),
+                      ServicesWidget(title: 'Продажа дома', 
+                      subTitle: 'Мы создаем безупречный онлайн-опыт  от покупок в крупнейшей сети проката до подачи заявки и оплаты аренды.',),
                       SizedBox(height: 20),
-                      ServicesWidget(),
+                      ServicesWidget(title: 'Покупка дома', 
+                      subTitle: 'Мы создаем безупречный онлайн-опыт  от покупок в крупнейшей сети проката до подачи заявки и оплаты аренды.',),
                     ],
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20.0),
+                padding: const EdgeInsets.only(left: 30.0),
                 child: Container(
+                  alignment: Alignment.center,
                   height: 118,
-                  width: 336,
+                  width: 350,
                   decoration: BoxDecoration(color: AppColors.white,
                   borderRadius: BorderRadius.circular(3),
                   boxShadow: [BoxShadow(blurRadius: 2, spreadRadius: 2, color: AppColors.black.withOpacity(0.10),
@@ -160,27 +186,44 @@ class HomePageScreen extends StatelessWidget {
                       width: double.infinity,
                       fit: BoxFit.fill,
                     ),
-                    ElevatedButton(onPressed: (){
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      side: const BorderSide(color: Color.fromRGBO(0, 105, 255, 1), width: 1),
+                      ), 
+                      onPressed: (){
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const MapScreen()),
                       );
                     }, 
-                    child: const Text('Посмотреть по карте'),
+                    child:  Text('Посмотреть по карте',
+                     style: GoogleFonts.montserrat(
+                     fontSize: 14,
+                     fontWeight: FontWeight.w400,
+                     color: const Color.fromRGBO(0, 105, 255, 1)
+                     ),
+                    ),
                     ),
                   ],
                 ),
                           ),
               ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 30,),
             Text('     SolidHome',
-                 style: AppFonts.w600s19.copyWith(color: Colors.blue),
+                 style: GoogleFonts.montserrat(
+                 fontSize: 18,
+                 fontWeight: FontWeight.w600,
+                 color: const Color.fromRGBO(0, 105, 255, 1)
+                 ),
               ),
-              const SizedBox(height: 20, width: 20,),
+              const SizedBox(height: 15,),
+              
               Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: SizedBox(
-                  height: 150,
+                padding: const EdgeInsets.only(left: 30.0),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 175,
                   width: 339.87,
                   child:  Text('Добро пожаловать на SolidHome - сайт по покупке,'
                   'аренде и продаже недвижимости в Кыргызстане!'
@@ -193,29 +236,37 @@ class HomePageScreen extends StatelessWidget {
                   style:  GoogleFonts.montserrat (
                     fontSize:  11.9,
                     fontWeight:  FontWeight.w500,
+                    height: 1.8,
                     color:  const Color(0xff333333),
                     ), 
                   ),
                 ),
               ),
-              Row(
-                children: [
-                  const SizedBox(width: 20,),
-                  Image.asset(
-                  AppImages.appstore,
-                  height: 29.74,
-                  width: 89.22,
-                  ),
-                  const SizedBox(width: 10,),
-                  Image.asset(
-                  AppImages.googleplay,
-                  height: 29.74,
-                  width: 89.22,
-                  ),
-                ],
+              const SizedBox(height: 30,),
+              Padding(
+                padding: const EdgeInsets.only(left:10.0),
+                child: Row(
+                  children: [
+                    const SizedBox(width: 20,),
+                    Image.asset(
+                    AppImages.appstore,
+                    height: 29.74,
+                    width: 89.22,
+                    ),
+                    const SizedBox(width: 10,),
+                    Image.asset(
+                    AppImages.googleplay,
+                    height: 29.74,
+                    width: 89.22,
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 20,),
-              const ConclusionListWidget(),
+              const SizedBox(height: 25,),
+              const Padding(
+                padding: EdgeInsets.all(20.0),
+                child: ConclusionListWidget(),
+              ),
               Text('__________________________________________________________________________',
                 style:  GoogleFonts.montserrat (
                 fontSize:  10,
@@ -224,7 +275,7 @@ class HomePageScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20,),
-              Text('              ©2023 SolidHome. Все права защищены',
+              Text('         ©2023 SolidHome. Все права защищены',
                 style:  GoogleFonts.montserrat (
                 fontSize:  11.9,
                 fontWeight:  FontWeight.w500,

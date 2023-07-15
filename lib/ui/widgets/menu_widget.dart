@@ -23,10 +23,10 @@ class MenuWidget extends StatelessWidget {
             barrierLabel: 'Label',
             pageBuilder: (_, __, ___) {
               return Align(
-                alignment: const Alignment(1,-0.55),
+                alignment: const Alignment(1,-0.60),
                 child: Container(
                   width: 310,
-                  height: 400,
+                  height: 410,
                   decoration: BoxDecoration(color: AppColors.white,
                   borderRadius: BorderRadius.circular(3),
                   boxShadow: [BoxShadow(blurRadius: 2, spreadRadius: 2, color: AppColors.black.withOpacity(0.10),),],
@@ -102,6 +102,7 @@ class MenuWidget extends StatelessWidget {
                                 ),
                               ),
                         ),
+                        const SizedBox(height: 10,),
                         RichText(text: TextSpan(
                           text:' _________________',
                           style:  GoogleFonts.montserrat (
@@ -130,13 +131,24 @@ class MenuWidget extends StatelessWidget {
                                 width: double.infinity,
                                 fit: BoxFit.fill,
                               ),
-                              ElevatedButton(onPressed: (){
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                side: const BorderSide(color: Color.fromRGBO(0, 105, 255, 1), width: 1),
+                                ),
+                                onPressed: (){
                               Navigator.push(
                                 context,
                                MaterialPageRoute(builder: (context) => const MapScreen()),
                               );
                              }, 
-                             child: const Text('Найти по карте'),
+                             child:  Text('Найти по карте',
+                             style: GoogleFonts.montserrat(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: const Color.fromRGBO(0, 105, 255, 1)
+                               ),
+                             ),
                              ),
                             ],
                            ),
